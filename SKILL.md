@@ -20,12 +20,12 @@ This skill establishes the production standard for authoring executive Solution 
 
 ## Overview & Core Capabilities
 
-Enterprise customer engagements (such as Siemens, Airbus, BMW, healthcare providers, and global financial institutions) require documentation that matches Google Cloud's corporate visual quality while communicating deep technical rigor:
+Enterprise customer engagements (such as Industry manufacturing, Aircraft fleet operations, Automotive OEMs, healthcare providers, and global financial institutions) require documentation that matches Google Cloud's corporate visual quality while communicating deep technical rigor:
 
 1. **Structured Blueprint Framework**: Standardized 6-section blueprint specification covering executive context, hybrid deterministic/LLM cognitive architectures, Pydantic schemas, data models, ADK 2.0 governance plugins, and test evidence.
 2. **Native In-DOM Rendering**: Vector rendering of Mermaid flowcharts, sequence diagrams, state machines, and KaTeX mathematical equations directly within the DOM—eliminating blurry rasterized images or external rendering web services.
 3. **Deterministic Chrome DevTools Protocol (CDP)**: Headless browser automation via WebSocket polling for `window.__MERMAID_RENDER_COMPLETE__`, guaranteeing zero clipped nodes, incomplete layout passes, or broken diagrams.
-4. **Co-Branded Styling**: Dynamic CSS custom properties and badge headers supporting Google Cloud + Enterprise Partner branding (Siemens, Airbus, Automotive, Healthcare, Finance, or custom HEX codes).
+4. **Co-Branded Styling**: Dynamic CSS custom properties and badge headers supporting Google Cloud + Enterprise Partner branding (Industry, Aircraft, Automotive, Healthcare, Finance, or custom HEX codes).
 5. **Cross-Platform Portability**: Automated binary discovery across macOS, Linux (Debian, Ubuntu, Cloud Shell, Cloudtop), and Windows.
 
 ---
@@ -140,11 +140,11 @@ python3 scripts/generate_pdf.py docs/SOLUTION_BLUEPRINT.md docs/SOLUTION_BLUEPRI
 
 ### Using Partner Themes
 ```bash
-# Siemens Theme (Petrol / Teamcenter PLM)
-python3 scripts/generate_pdf.py docs/SIEMENS_BLUEPRINT.md --theme siemens
+# Industry Theme (Petrol / PLM Automation)
+python3 scripts/generate_pdf.py docs/INDUSTRY_BLUEPRINT.md --theme industry
 
-# Airbus Theme (Navy & Gold / Commercial Aircraft)
-python3 scripts/generate_pdf.py docs/AIRBUS_BLUEPRINT.md --theme airbus
+# Aircraft Theme (Navy & Gold / Fleet Support)
+python3 scripts/generate_pdf.py docs/AIRCRAFT_BLUEPRINT.md --theme aircraft
 
 # Custom Corporate Partner
 python3 scripts/generate_pdf.py docs/PARTNER_DOC.md \
@@ -158,7 +158,7 @@ python3 scripts/generate_pdf.py docs/PARTNER_DOC.md \
 | :--- | :--- | :--- |
 | `-i, --input` | Path to source Markdown file | Required |
 | `-o, --output` | Path to destination PDF file | `<input>.pdf` |
-| `--theme` | Built-in theme preset (`default`, `siemens`, `airbus`, `automotive`, `healthcare`, `finance`) | `default` |
+| `--theme` | Built-in theme preset (`default`, `industry`, `aircraft`, `automotive`, `healthcare`, `finance`) | `default` |
 | `--partner` | Custom partner brand name | Preset default |
 | `--partner-color`| Custom primary brand hex code | Preset default |
 | `--badge` | Custom partner subtitle badge | Preset default |

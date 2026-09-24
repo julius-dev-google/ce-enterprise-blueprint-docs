@@ -5,7 +5,7 @@ Google Cloud Enterprise Solution Blueprint & Markdown-to-PDF Generator
 
 Converts Markdown blueprints and technical architecture specifications into
 publication-ready, executive-quality PDF documents co-branded with Google Cloud
-and enterprise partner themes (e.g., Siemens, Airbus, Automotive, Healthcare).
+and enterprise partner themes (e.g., Industry, Aircraft, Automotive, Healthcare).
 
 Key Capabilities:
   - Native in-browser rendering of Mermaid diagrams (flowcharts, sequence, ER diagrams).
@@ -18,8 +18,8 @@ Key Capabilities:
 
 Usage:
   python3 generate_pdf.py <input.md> [output.pdf] [options]
-  python3 generate_pdf.py --input docs/MY_BLUEPRINT.md --theme siemens
-  python3 generate_pdf.py -i docs/MY_BLUEPRINT.md --partner "Airbus" --theme airbus
+  python3 generate_pdf.py --input docs/MY_BLUEPRINT.md --theme industry
+  python3 generate_pdf.py -i docs/MY_BLUEPRINT.md --partner "Aircraft" --theme aircraft
 """
 
 import argparse
@@ -46,11 +46,11 @@ THEME_PRESETS: Dict[str, Dict[str, str]] = {
         "brand_secondary_light": "#e6f4ea",
         "brand_accent": "#f9ab00",
     },
-    "siemens": {
+    "industry": {
         "brand_name": "Google Cloud",
         "brand_badge": "Architecture Blueprint",
-        "partner_name": "SIEMENS",
-        "partner_badge": "Teamcenter PLM",
+        "partner_name": "INDUSTRY",
+        "partner_badge": "PLM Automation",
         "brand_primary": "#00646e",
         "brand_primary_dark": "#00373c",
         "brand_primary_light": "#ebf5f6",
@@ -58,11 +58,11 @@ THEME_PRESETS: Dict[str, Dict[str, str]] = {
         "brand_secondary_light": "#e8f0fe",
         "brand_accent": "#eb780a",
     },
-    "airbus": {
+    "aircraft": {
         "brand_name": "Google Cloud",
         "brand_badge": "Architecture Blueprint",
-        "partner_name": "AIRBUS",
-        "partner_badge": "Commercial Aircraft",
+        "partner_name": "AIRCRAFT",
+        "partner_badge": "Fleet Support",
         "brand_primary": "#00205b",
         "brand_primary_dark": "#001338",
         "brand_primary_light": "#e8eef8",
@@ -869,12 +869,12 @@ def parse_args():
     parser.add_argument(
         "--theme",
         default="default",
-        choices=["default", "siemens", "airbus", "automotive", "healthcare", "finance"],
+        choices=["default", "industry", "aircraft", "automotive", "healthcare", "finance"],
         help="Built-in branding preset for colors and badges.",
     )
-    parser.add_argument("--partner", help="Partner brand name (e.g., 'Siemens', 'Airbus', 'Cymbal Retail').")
+    parser.add_argument("--partner", help="Partner brand name (e.g., 'Industry', 'Aircraft', 'Cymbal Retail').")
     parser.add_argument("--partner-color", help="Hex color code for primary partner branding (e.g., '#00646e').")
-    parser.add_argument("--badge", help="Badge subtitle for the partner header (e.g., 'Teamcenter PLM').")
+    parser.add_argument("--badge", help="Badge subtitle for the partner header (e.g., 'PLM Automation').")
     parser.add_argument("--chrome-bin", help="Custom path to Google Chrome or Chromium executable.")
     parser.add_argument("--no-pdf", action="store_true", help="Generate HTML presentation only; skip PDF conversion.")
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose debug and progress logging.")

@@ -1,6 +1,6 @@
 # Solution Blueprint: Industrial Manufacturing Work Plan Assistant
 
-# Automated Work Plan Generation for Enterprise PLM (Siemens Teamcenter)
+# Automated Work Plan Generation for Enterprise Industry PLM
 ## Scalable Zero-Copy Lakehouse Analytics & Generative AI with Google Cloud Vertex AI
 
 ---
@@ -9,7 +9,7 @@
 
 | Attribute | Specification |
 | :--- | :--- |
-| **Client / Domain:** | **Industrial Automation & Electronics Manufacturing** (Siemens Teamcenter Ecosystem) |
+| **Client / Domain:** | **Industrial Automation & Electronics Manufacturing** (Enterprise Industry PLM Ecosystem) |
 | **Solution Category:** | PLM & MES Workflow Automation (Manufacturing Work Plan Alternatives – WPA) |
 | **Technology Stack:** | **Google Agent Development Kit (ADK) 2.4.0**, **Gemini 3.5 Flash**, **Vertex AI Agent Engine**, **Google Cloud BigQuery**, **Gemini Enterprise** |
 | **Data Architecture:** | **Apache Iceberg on AWS S3 / Cloud Storage** $\rightarrow$ **BigQuery BigLake External Tables** (Zero-Copy) |
@@ -24,7 +24,7 @@
 
 > [!NOTE]
 > **Google Cloud Architecture Statement:**  
-> The **Industrial Work Plan Assistant ("Herbert")** demonstrates the symbiosis of **Google Cloud Generative AI (ADK + Gemini 3.5 Flash)** and **high-performance In-Database Data Analytics (BigQuery)** to automate mission-critical PLM workflows in enterprise manufacturing (Siemens Teamcenter). The underlying data lakehouse is hosted as open **Apache Iceberg tables**, queried in-place via **BigQuery BigLake External Tables** without data replication (Zero-Copy).
+> The **Industrial Work Plan Assistant ("Herbert")** demonstrates the symbiosis of **Google Cloud Generative AI (ADK + Gemini 3.5 Flash)** and **high-performance In-Database Data Analytics (BigQuery)** to automate mission-critical PLM workflows in enterprise manufacturing (Industry PLM). The underlying data lakehouse is hosted as open **Apache Iceberg tables**, queried in-place via **BigQuery BigLake External Tables** without data replication (Zero-Copy).
 
 | ⚡ In-Database Speed | 🎯 Mathematical Precision | 🔒 Zero-Copy Data Lakehouse | 🌐 Multi-Channel Integration |
 | :---: | :---: | :---: | :---: |
@@ -37,7 +37,7 @@
 ### 1.1 Challenges in Electronics & Industrial Assembly
 In high-reliability industrial automation manufacturing (programmable logic controllers, distributed I/O modules, power supplies, and variable frequency drives), every new product release begins with an **Engineering Bill of Materials (E-BOM)** created by electrical and mechanical CAD engineers.
 
-Manufacturing planners face the time-critical, manual task of generating a standardized **Work Plan Alternative (WPA)** within the corporate PLM system (Siemens Teamcenter). In major electronics plants, tens of thousands of historic, released work plans exist with highly specialized manufacturing operations (routing):
+Manufacturing planners face the time-critical, manual task of generating a standardized **Work Plan Alternative (WPA)** within the corporate PLM system (Industry PLM). In major electronics plants, tens of thousands of historic, released work plans exist with highly specialized manufacturing operations (routing):
 
 - **SMT Line (Surface-Mount Technology):** Solder paste printing, stencil cleaning, high-speed passive placement, and fine-pitch BGA/QFP processor placement.
 - **Soldering Processes:** Multi-zone reflow soldering under nitrogen atmosphere ($N_2$) with profiled thermal gradients.

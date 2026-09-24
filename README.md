@@ -21,9 +21,9 @@
 - [The 6-Section Blueprint Standard](#the-6-section-blueprint-standard)
 - [Syntax & Formatting Extensions](#syntax--formatting-extensions)
 - [Catalog of Bundled Anonymized Examples](#catalog-of-bundled-anonymized-examples)
-  - [1. Siemens Work Plan Assistant ("Herbert")](#1-siemens-work-plan-assistant-herbert)
-  - [2. Airbus REO Airworthiness Compliance Agent](#2-airbus-reo-airworthiness-compliance-agent)
-  - [3. Airbus SB Warranty Claim Adjudication Agent](#3-airbus-sb-warranty-claim-adjudication-agent)
+  - [1. Industry Work Plan Assistant ("Herbert")](#1-industry-work-plan-assistant-herbert)
+  - [2. Aircraft REO Airworthiness Compliance Agent](#2-aircraft-reo-airworthiness-compliance-agent)
+  - [3. Aircraft SB Warranty Claim Adjudication Agent](#3-aircraft-sb-warranty-claim-adjudication-agent)
 - [Publishing & Sharing across Google Cloud (`cloud-gtm`)](#publishing--sharing-across-google-cloud-cloud-gtm)
 - [Automated Verification & Tests](#automated-verification--tests)
 
@@ -31,7 +31,7 @@
 
 ## Overview & The Problem
 
-When Google Cloud Customer Engineers (CEs), AI Specialists, and Solution Architects partner with strategic enterprise customers (e.g., **Siemens, Airbus, automotive manufacturers, healthcare systems, and tier-1 financial institutions**), technical deliverables must bridge two worlds:
+When Google Cloud Customer Engineers (CEs), AI Specialists, and Solution Architects partner with strategic enterprise customers (e.g., **Industry manufacturing, Aircraft fleet operations, automotive manufacturers, healthcare systems, and tier-1 financial institutions**), technical deliverables must bridge two worlds:
 
 1. **Executive Presentation**: Polished typography, corporate co-branding, clear ROI, and high-level architectural summaries suitable for Chief Digital Officers and VP-level stakeholders.
 2. **Deep Technical Rigor**: Mathematical formulations, entity-relationship data schemas, deterministic vs. LLM cognitive pipelines, lifecycle interceptors, and audited test evidence.
@@ -53,7 +53,7 @@ Traditional CLI converters (such as Pandoc, Weasyprint, or basic browser print s
 - **KaTeX Mathematical Typesetting**: Full LaTeX equation support for both inline (`$S(Q, T)$`) and display blocks (`$$...$$`).
 - **Deterministic CDP WebSocket Synchronization**: Headless Chrome rendering with DOM completion polling (`window.__MERMAID_RENDER_COMPLETE__ === true`), eliminating race conditions.
 - **Enterprise Co-Branding**: Dynamic CSS custom property theming and dual-badge headers for Google Cloud + Enterprise Partner branding.
-- **Built-in Brand Presets**: Pre-configured palettes for **Siemens** (Petrol & Orange), **Airbus** (Navy & Gold), **Automotive** (Carbon & Crimson), **Healthcare** (Teal & Mint), and **Finance** (Emerald & Blue).
+- **Built-in Brand Presets**: Pre-configured palettes for **Industry** (Petrol & Orange), **Aircraft** (Navy & Gold), **Automotive** (Carbon & Crimson), **Healthcare** (Teal & Mint), and **Finance** (Emerald & Blue).
 - **GitHub Callout Cards**: Automatic preprocessing of `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, and `> [!CAUTION]`.
 - **KPI Summary Grid**: 4-card metric highlight block designed for executive summaries.
 - **Print Optimization**: A4 portrait geometry with CSS `@page` styling, avoiding orphan headings and broken table rows.
@@ -107,8 +107,8 @@ cd enterprise-blueprint-docs
 python3 scripts/generate_pdf.py resources/blueprint_template.md output/MY_BLUEPRINT.pdf
 
 # 3. Convert with a specific corporate partner theme
-python3 scripts/generate_pdf.py my_doc.md --theme siemens
-python3 scripts/generate_pdf.py my_doc.md --theme airbus
+python3 scripts/generate_pdf.py my_doc.md --theme industry
+python3 scripts/generate_pdf.py my_doc.md --theme aircraft
 ```
 
 ---
@@ -117,7 +117,7 @@ python3 scripts/generate_pdf.py my_doc.md --theme airbus
 
 ```
 usage: generate_pdf.py [-h] [-i OPT_INPUT] [-o OPT_OUTPUT] [--html HTML]
-                       [--title TITLE] [--theme {default,siemens,airbus,automotive,healthcare,finance}]
+                       [--title TITLE] [--theme {default,industry,aircraft,automotive,healthcare,finance}]
                        [--partner PARTNER] [--partner-color PARTNER_COLOR]
                        [--badge BADGE] [--chrome-bin CHROME_BIN] [--no-pdf]
                        [-v] [input_file] [output_file]
@@ -129,10 +129,10 @@ usage: generate_pdf.py [-h] [-i OPT_INPUT] [-o OPT_OUTPUT] [--html HTML]
 | :--- | :---: | :---: | :--- |
 | `input_file`, `-i`, `--input` | Path | Required | Path to the source Markdown document (`.md`). |
 | `output_file`, `-o`, `--output`| Path | `<input>.pdf`| Destination path for the generated PDF. |
-| `--theme` | Choice | `default` | Built-in brand palette (`default`, `siemens`, `airbus`, `automotive`, `healthcare`, `finance`). |
+| `--theme` | Choice | `default` | Built-in brand palette (`default`, `industry`, `aircraft`, `automotive`, `healthcare`, `finance`). |
 | `--partner` | String | *Theme Default* | Co-branding partner name displayed on the right header. |
 | `--partner-color` | Hex | *Theme Default* | Primary hex color code for headings and partner badges (e.g., `#00646e`). |
-| `--badge` | String | *Theme Default* | Subtitle badge for partner domain (e.g., `Teamcenter PLM`). |
+| `--badge` | String | *Theme Default* | Subtitle badge for partner domain (e.g., `Industry PLM`). |
 | `--title` | String | *From H1* | Override document title in window metadata and header. |
 | `--html` | Path | `<input>.html`| Output path for intermediate HTML file. |
 | `--no-pdf` | Flag | `false` | Generate standalone HTML presentation only (skips PDF print). |
@@ -144,8 +144,8 @@ usage: generate_pdf.py [-h] [-i OPT_INPUT] [-o OPT_OUTPUT] [--html HTML]
 | Preset | Partner Name | Primary Color | Accent Color | Intended Domain |
 | :--- | :--- | :--- | :--- | :--- |
 | `default` | Enterprise Solution | `#1a73e8` (GCP Blue) | `#f9ab00` (Amber) | General Google Cloud Reference Architectures |
-| `siemens` | SIEMENS | `#00646e` (Petrol) | `#eb780a` (Orange) | PLM, MES, Digital Industries, Industrial Automation |
-| `airbus` | AIRBUS | `#00205b` (Deep Navy)| `#f2a900` (Gold) | Commercial Aerospace, Airworthiness, Defense |
+| `industry` | INDUSTRY | `#00646e` (Petrol) | `#eb780a` (Orange) | PLM, MES, Digital Industries, Industrial Automation |
+| `aircraft` | AIRCRAFT | `#00205b` (Deep Navy)| `#f2a900` (Gold) | Commercial Aerospace, Airworthiness, Defense |
 | `automotive`| Automotive OEM | `#1e2229` (Carbon) | `#c8102e` (Crimson) | Connected Vehicle, Manufacturing, Supply Chain |
 | `healthcare`| Digital Health | `#007a87` (Teal) | `#ff5a5f` (Coral) | Clinical AI, MedTech, Regulated Life Sciences |
 | `finance` | Financial Services| `#0f5132` (Emerald) | `#ffc107` (Gold) | Sovereign Banking, Risk Analysis, FinTech Core |
@@ -233,21 +233,21 @@ Create a 4-card metric block for executive summaries:
 
 This repository includes three complete, anonymized enterprise solution blueprints harvested from production customer engagements:
 
-### 1. Siemens Work Plan Assistant ("Herbert")
-- **Location:** [`examples/siemens-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/siemens-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.md)
-- **Compiled PDF:** [`examples/siemens-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/siemens-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.pdf)
-- **Theme:** `siemens` (Petrol & Orange)
-- **Domain:** Industrial Electronics Manufacturing & PLM Automation (Siemens Teamcenter).
+### 1. Industry Work Plan Assistant ("Herbert")
+- **Location:** [`examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.md)
+- **Compiled PDF:** [`examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.pdf)
+- **Theme:** `industry` (Petrol & Orange)
+- **Domain:** Industrial Electronics Manufacturing & PLM Automation (Industry PLM).
 - **Core Technology:**
   - **Zero-Copy Lakehouse**: Direct SQL queries on **Apache Iceberg tables** via **BigQuery BigLake External Tables**.
   - **3-Tier Asymmetric Tversky Index**: Mathematical multiset formula prioritizing exact part matches (Tier 1 = 1.00), specification matches (Tier 2 = 0.75), and functional families (Tier 3 = 0.45) with penalties ($\alpha=0.7, \beta=0.3$).
   - **In-Database CTE**: Sub-200ms query execution across 35,000+ manufacturing routing plans.
   - **ADK 2.4 + Gemini 3.5 Flash**: Dual-mode agent handling inline free-text BOMs and part lookups.
 
-### 2. Airbus REO Airworthiness Compliance Agent
-- **Location:** [`examples/airbus-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/airbus-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md)
-- **Compiled PDF:** [`examples/airbus-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/airbus-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf)
-- **Theme:** `airbus` (Navy & Gold)
+### 2. Aircraft REO Airworthiness Compliance Agent
+- **Location:** [`examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md)
+- **Compiled PDF:** [`examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf)
+- **Theme:** `aircraft` (Navy & Gold)
 - **Domain:** Commercial Aircraft Maintenance, Fleet Support, and Airworthiness Compliance (A220 Program).
 - **Core Technology:**
   - **Hybrid Cognitive Architecture**: 14 deterministic regex/structural rules (<50ms) + 9 targeted Gemini 3.7 Flash multimodal vision rules (datum orientation, grid scales, imperative grammar).
@@ -255,10 +255,10 @@ This repository includes three complete, anonymized enterprise solution blueprin
   - **ADK 2.0 Governance**: Lifecycle interceptors (`ReoComplianceAuditPlugin`) logging immutable audit records in `context.state["audit_history"]`.
   - **Telemetry Waterfall**: OpenTelemetry / Cloud Trace sequence breakdown across all 4 execution stages.
 
-### 3. Airbus SB Warranty Claim Adjudication Agent
-- **Location:** [`examples/airbus-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/airbus-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md)
-- **Compiled PDF:** [`examples/airbus-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/airbus-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf)
-- **Theme:** `airbus` (Navy & Gold)
+### 3. Aircraft SB Warranty Claim Adjudication Agent
+- **Location:** [`examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md)
+- **Compiled PDF:** [`examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf)
+- **Theme:** `aircraft` (Navy & Gold)
 - **Domain:** Commercial Airline Retrofit Warranty Reimbursement & Financial Reconciliation.
 - **Core Technology:**
   - **Multi-Agent Coordination**: Coordinator workflow orchestrating 8 specialized subagents (claim parser, SB parser, applicability checker, task card validator, campaign policy checker, rate calculator, duplication checker, override parser).
@@ -277,7 +277,7 @@ This skill package adheres to the **Google Cloud Agent Skills specification** an
 cd /Users/ollesch/julius-dev/enterprise-blueprint-docs
 git init
 git add .
-git commit -m "feat: initial enterprise-blueprint-docs skill release with Siemens and Airbus examples"
+git commit -m "feat: initial enterprise-blueprint-docs skill release with Industry and Aircraft examples"
 
 # 2. Create remote repository under cloud-gtm
 ~/ge_spark_workspace/ce-powers-spark/bin/gh-cli repo create cloud-gtm/enterprise-blueprint-docs \
@@ -337,13 +337,13 @@ enterprise-blueprint-docs/
 │   └── pdf_to_images.swift           # Native macOS PDFKit rasterizer (Swift)
 ├── resources/
 │   ├── blueprint_template.md         # 6-section enterprise blueprint template
-│   └── theme_presets.json            # Color palettes (Siemens, Airbus, Auto, Health, Finance)
+│   └── theme_presets.json            # Color palettes (Industry, Aircraft, Auto, Health, Finance)
 ├── examples/
-│   ├── siemens-work-plan-assistant/
-│   │   ├── WORK_PLAN_ASSISTANT_BLUEPRINT.md   # Anonymized Siemens PLM blueprint
+│   ├── industry-work-plan-assistant/
+│   │   ├── WORK_PLAN_ASSISTANT_BLUEPRINT.md   # Anonymized Industry PLM blueprint
 │   │   ├── WORK_PLAN_ASSISTANT_BLUEPRINT.html # Pre-rendered HTML
 │   │   └── WORK_PLAN_ASSISTANT_BLUEPRINT.pdf  # Compiled high-resolution PDF (831 KB)
-│   └── airbus-aerospace-agents/
+│   └── aircraft-aerospace-agents/
 │       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md          # Anonymized REO audit blueprint
 │       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.html        # Pre-rendered HTML
 │       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf         # Compiled PDF (844 KB)

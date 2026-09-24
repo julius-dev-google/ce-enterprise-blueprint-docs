@@ -16,12 +16,12 @@
         "accent": "#f9ab00"
       }
     },
-    "siemens": {
-      "name": "Siemens AG & Teamcenter PLM",
+    "industry": {
+      "name": "Industrial Manufacturing & PLM",
       "brand_name": "Google Cloud",
       "brand_badge": "Architecture Blueprint",
-      "partner_name": "SIEMENS",
-      "partner_badge": "Teamcenter PLM",
+      "partner_name": "INDUSTRY",
+      "partner_badge": "PLM Automation",
       "colors": {
         "primary": "#00646e",
         "primary_dark": "#00373c",
@@ -31,12 +31,12 @@
         "accent": "#eb780a"
       }
     },
-    "airbus": {
-      "name": "Airbus Commercial Aircraft",
+    "aircraft": {
+      "name": "Commercial Aircraft Fleet Support",
       "brand_name": "Google Cloud",
       "brand_badge": "Architecture Blueprint",
-      "partner_name": "AIRBUS",
-      "partner_badge": "Commercial Aircraft",
+      "partner_name": "AIRCRAFT",
+      "partner_badge": "Fleet Support",
       "colors": {
         "primary": "#00205b",
         "primary_dark": "#001338",

@@ -47,7 +47,7 @@ class TestEnterpriseBlueprintDocs(unittest.TestCase):
 
     def test_build_html_document(self):
         sample_md = "# Test Document\n\nHello world!"
-        theme = THEME_PRESETS["siemens"]
+        theme = THEME_PRESETS["industry"]
         html = build_html_document(sample_md, "Test Title", theme)
         self.assertIn("<title>Test Title</title>", html)
         self.assertIn(theme["brand_primary"], html)
