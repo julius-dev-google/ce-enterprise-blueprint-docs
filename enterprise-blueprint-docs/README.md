@@ -1,7 +1,4 @@
-# ce-enterprise-blueprint-docs: Enterprise Solution Blueprint & Architecture Documentation Generator
-
-*Repository provisioned by Cloud Demo Platform.*
-
+# Enterprise Solution Blueprint & Architecture Documentation Generator
 
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-AI%20Engineering-4285F4?logo=google-cloud&logoColor=white)](https://cloud.google.com)
 [![ADK 2.x](https://img.shields.io/badge/Google%20ADK-2.x%20Ready-34A853)](https://github.com/google/agent-development-kit)
@@ -366,4 +363,4 @@ enterprise-blueprint-docs/
 - **Author:** Google Cloud AI Engineering
 - **Version:** `1.2.0`
 - **Maintained by:** Google Cloud Customer Engineering & CE Powers Spark Team
-- **Feedback & Issues:** File issues or contributions via `cloud-gtm/ce-enterprise-blueprint-docs`.
+- **Feedback & Issues:** File issues or contributions via `cloud-gtm/enterprise-blueprint-docs`.

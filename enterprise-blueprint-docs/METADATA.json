@@ -1,0 +1,30 @@
+{
+  "name": "ce-enterprise-blueprint-docs",
+  "description": "Enterprise Solution Blueprint & Architecture Documentation Generator for Google Cloud AI Engineering",
+  "owner": "ollesch@google.com",
+  "team": "ce",
+  "project": "enterprise-blueprint",
+  "component": "docs",
+  "repository": "https://github.com/cloud-gtm/ce-enterprise-blueprint-docs",
+  "type": "demo",
+  "version": "1.2.0",
+  "compliance": {
+    "contains_secrets": false,
+    "contains_customer_data": false,
+    "contains_pii": false,
+    "contains_spi": false,
+    "anonymized_samples": true,
+    "open_for_gtm_collaboration": true
+  },
+  "topics": [
+    "google-cloud",
+    "vertex-ai",
+    "solution-blueprint",
+    "documentation",
+    "mermaid",
+    "katex",
+    "python",
+    "agent-development-kit",
+    "demo"
+  ]
+}
