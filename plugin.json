@@ -1,0 +1,17 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "enterprise-blueprint-docs",
+  "description": "Enterprise Solution Blueprint & Architecture Documentation Generator for Google Cloud AI Engineering. Compiles Markdown with native in-DOM Mermaid vector diagrams, KaTeX math formulas, and corporate co-branding into publication-ready, executive PDFs.",
+  "version": "1.2.0",
+  "author": "Google Cloud AI Engineering",
+  "skills": [
+    "enterprise-blueprint-docs"
+  ],
+  "dependencies": {
+    "system": [
+      "google-chrome || chromium",
+      "node>=18.0.0",
+      "python>=3.9"
+    ]
+  }
+}
