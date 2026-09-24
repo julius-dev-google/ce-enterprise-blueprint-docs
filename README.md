@@ -20,10 +20,10 @@
 - [CLI Reference & Theme Options](#cli-reference--theme-options)
 - [The 6-Section Blueprint Standard](#the-6-section-blueprint-standard)
 - [Syntax & Formatting Extensions](#syntax--formatting-extensions)
-- [Catalog of Bundled Anonymized Examples](#catalog-of-bundled-anonymized-examples)
-  - [1. Industry Work Plan Assistant ("Herbert")](#1-industry-work-plan-assistant-herbert)
-  - [2. Aircraft REO Airworthiness Compliance Agent](#2-aircraft-reo-airworthiness-compliance-agent)
-  - [3. Aircraft SB Warranty Claim Adjudication Agent](#3-aircraft-sb-warranty-claim-adjudication-agent)
+- [Catalog of Bundled Anonymized Examples (Simplified Reference Samples)](#catalog-of-bundled-anonymized-examples-simplified-reference-samples)
+  - [1. Industry Work Plan Assistant (Simplified Sample)](#1-industry-work-plan-assistant-simplified-sample)
+  - [2. Aircraft Engineering Order Compliance Review Agent (Simplified Sample)](#2-aircraft-engineering-order-compliance-review-agent-simplified-sample)
+  - [3. Aircraft Warranty Claim Adjudication Agent (Simplified Sample)](#3-aircraft-warranty-claim-adjudication-agent-simplified-sample)
 - [Publishing & Sharing across Google Cloud (`cloud-gtm`)](#publishing--sharing-across-google-cloud-cloud-gtm)
 - [Automated Verification & Tests](#automated-verification--tests)
 
@@ -229,41 +229,43 @@ Create a 4-card metric block for executive summaries:
 
 ---
 
-## Catalog of Bundled Anonymized Examples
+## Catalog of Bundled Anonymized Examples (Simplified Reference Samples)
 
-This repository includes three complete, anonymized enterprise solution blueprints harvested from production customer engagements:
+> [!NOTE]
+> **Customer IP Protection Statement:**  
+> The examples bundled in this repository are **simplified, synthetic reference samples**. They illustrate realistic architectural patterns (such as zero-copy Iceberg lakehouse federations, multimodal engineering order audits, and multi-agent A2UI reconciliation workflows) while ensuring all proprietary product codes, schema definitions, internal checklists, and customer IP are sanitized or replaced with generic models.
 
-### 1. Industry Work Plan Assistant ("Herbert")
+### 1. Industry Work Plan Assistant (Simplified Sample)
 - **Location:** [`examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.md)
 - **Compiled PDF:** [`examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/industry-work-plan-assistant/WORK_PLAN_ASSISTANT_BLUEPRINT.pdf)
 - **Theme:** `industry` (Petrol & Orange)
-- **Domain:** Industrial Electronics Manufacturing & PLM Automation (Industry PLM).
+- **Domain:** Industrial Electronics Manufacturing & Enterprise PLM Routing Discovery.
 - **Core Technology:**
   - **Zero-Copy Lakehouse**: Direct SQL queries on **Apache Iceberg tables** via **BigQuery BigLake External Tables**.
   - **3-Tier Asymmetric Tversky Index**: Mathematical multiset formula prioritizing exact part matches (Tier 1 = 1.00), specification matches (Tier 2 = 0.75), and functional families (Tier 3 = 0.45) with penalties ($\alpha=0.7, \beta=0.3$).
   - **In-Database CTE**: Sub-200ms query execution across 35,000+ manufacturing routing plans.
   - **ADK 2.4 + Gemini 3.5 Flash**: Dual-mode agent handling inline free-text BOMs and part lookups.
 
-### 2. Aircraft REO Airworthiness Compliance Agent
+### 2. Aircraft Engineering Order Compliance Review Agent (Simplified Sample)
 - **Location:** [`examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md)
 - **Compiled PDF:** [`examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf)
 - **Theme:** `aircraft` (Navy & Gold)
-- **Domain:** Commercial Aircraft Maintenance, Fleet Support, and Airworthiness Compliance (A220 Program).
+- **Domain:** Commercial Aircraft Maintenance & Engineering Order Airworthiness Review.
 - **Core Technology:**
-  - **Hybrid Cognitive Architecture**: 14 deterministic regex/structural rules (<50ms) + 9 targeted Gemini 3.7 Flash multimodal vision rules (datum orientation, grid scales, imperative grammar).
-  - **24-Point Compliance Matrix**: Full mapping of aerospace engineering order checklist.
+  - **Hybrid Cognitive Architecture**: Fast deterministic validation (<50ms) + targeted Gemini 3.7 Flash multimodal vision rules (datum orientation, grid scales, imperative grammar).
+  - **Representative 10-Point Airworthiness Checklist**: Airframe effectivity, drawing orientation, and structural procedure validation.
   - **ADK 2.0 Governance**: Lifecycle interceptors (`ReoComplianceAuditPlugin`) logging immutable audit records in `context.state["audit_history"]`.
-  - **Telemetry Waterfall**: OpenTelemetry / Cloud Trace sequence breakdown across all 4 execution stages.
+  - **Telemetry Waterfall**: OpenTelemetry / Cloud Trace sequence breakdown across all execution stages.
 
-### 3. Aircraft SB Warranty Claim Adjudication Agent
+### 3. Aircraft Warranty Claim Adjudication Agent (Simplified Sample)
 - **Location:** [`examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md)
 - **Compiled PDF:** [`examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf`](file:///Users/ollesch/julius-dev/enterprise-blueprint-docs/examples/aircraft-aerospace-agents/AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf)
 - **Theme:** `aircraft` (Navy & Gold)
 - **Domain:** Commercial Airline Retrofit Warranty Reimbursement & Financial Reconciliation.
 - **Core Technology:**
-  - **Multi-Agent Coordination**: Coordinator workflow orchestrating 8 specialized subagents (claim parser, SB parser, applicability checker, task card validator, campaign policy checker, rate calculator, duplication checker, override parser).
-  - **Deterministic Labor Reconciliation**: Dual-epoch formulation enforcing **Rule A** (post-2024 full actuals) vs. **Rule B** (pre-2024 standard procedure caps).
-  - **Human-in-the-Loop A2UI Protocol**: Interactive v0.9 cards with 1-click action buttons (`[APPROVE OVERRIDE]`, `[PROCEED WITH SB HOURS]`, `[HOLD FOR UPLOAD]`, `[REJECT]`) in Gemini Enterprise Agentspace.
+  - **Multi-Agent Coordination**: Coordinator workflow orchestrating 5 specialized subagents and deterministic engines (claim intake, bulletin analyzer, hours reconciliation, ledger audit, and A2UI surface).
+  - **Deterministic Labor Reconciliation**: Standard procedure allowances and contractual labor rate caps.
+  - **Human-in-the-Loop A2UI Protocol**: Interactive v0.9 cards with 1-click action buttons (`[APPROVE OVERRIDE]`, `[PROCEED WITH STANDARD HOURS]`, `[HOLD FOR UPLOAD]`, `[REJECT]`) in Gemini Enterprise Agentspace.
   - **Advisory Framing**: User-facing approval outcomes framed as "Suggested to Approve", preserving human statutory authority.
 
 ---
@@ -340,16 +342,16 @@ enterprise-blueprint-docs/
 │   └── theme_presets.json            # Color palettes (Industry, Aircraft, Auto, Health, Finance)
 ├── examples/
 │   ├── industry-work-plan-assistant/
-│   │   ├── WORK_PLAN_ASSISTANT_BLUEPRINT.md   # Anonymized Industry PLM blueprint
+│   │   ├── WORK_PLAN_ASSISTANT_BLUEPRINT.md   # Simplified Industry PLM routing sample
 │   │   ├── WORK_PLAN_ASSISTANT_BLUEPRINT.html # Pre-rendered HTML
-│   │   └── WORK_PLAN_ASSISTANT_BLUEPRINT.pdf  # Compiled high-resolution PDF (831 KB)
+│   │   └── WORK_PLAN_ASSISTANT_BLUEPRINT.pdf  # Compiled high-resolution PDF (758 KB)
 │   └── aircraft-aerospace-agents/
-│       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md          # Anonymized REO audit blueprint
+│       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.md          # Simplified REO compliance audit sample
 │       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.html        # Pre-rendered HTML
-│       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf         # Compiled PDF (844 KB)
-│       ├── AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md   # Anonymized SB warranty blueprint
+│       ├── AEROSPACE_REO_COMPLIANCE_BLUEPRINT.pdf         # Compiled PDF (806 KB)
+│       ├── AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.md   # Simplified SB warranty adjudication sample
 │       ├── AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.html # Pre-rendered HTML
-│       └── AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf  # Compiled PDF (706 KB)
+│       └── AEROSPACE_WARRANTY_ADJUDICATION_BLUEPRINT.pdf  # Compiled PDF (658 KB)
 └── tests/
     └── test_pipeline.py              # Automated unit and integration test suite
 ```

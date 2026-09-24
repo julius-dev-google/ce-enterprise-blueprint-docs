@@ -1,7 +1,13 @@
-# Solution Blueprint: Aerospace Repair Engineering Order (REO) Compliance Review Agent
+# Solution Blueprint: Aerospace Engineering Order Compliance Review Agent (Simplified Sample)
 
 # Automated Airworthiness Audit for Commercial Aircraft Fleet Support
 ## Hybrid Cognitive Architecture Combining Deterministic Engines & Multimodal LLMs on Google Cloud
+
+---
+
+> [!IMPORTANT]
+> **SIMPLIFIED ARCHITECTURAL SAMPLE & REFERENCE PATTERN**  
+> This blueprint is a simplified, synthetic architectural sample created to illustrate a hybrid cognitive pattern combining deterministic rule validation with Google Cloud multimodal vision models (Gemini 3.7 Flash). All document identifiers, engineering order forms, serial numbers, and checklist items are generic, synthetic examples created for reference purposes and do not represent any proprietary customer IP or production data.
 
 ---
 
@@ -13,9 +19,9 @@
 | **Solution Category:** | Airworthiness Compliance Automation (Repair Engineering Orders – REOs) |
 | **Technology Stack:** | **Google Agent Development Kit (ADK) 2.0**, **Gemini 3.7 Flash Multimodal**, **Vertex AI Agent Engine**, **Google Cloud Storage**, **Gemini Enterprise** |
 | **Hosting Region:** | Google Cloud `europe-west1` (Belgium) / Runtime: Vertex AI Reasoning Engine |
-| **Document Classification:** | Enterprise Solution Blueprint & Validated Reference Architecture |
-| **Status:** | Active in Production / Validated Reference Architecture |
-| **Version:** | 1.0.0 (Anonymized Enterprise Distribution) |
+| **Document Classification:** | Enterprise Solution Blueprint & Validated Reference Architecture (Sample) |
+| **Status:** | Generic Proof-of-Concept & Reference Architecture Pattern |
+| **Version:** | 1.0.0 (Sanitized & Simplified Sample Distribution) |
 
 ---
 
@@ -23,18 +29,16 @@
 
 > [!NOTE]
 > **Google Cloud Architecture Statement:**  
-> The **Aerospace REO Compliance Review Agent** is an enterprise AI solution designed to automate and accelerate the airworthiness compliance audit of Repair Engineering Orders (REOs). In commercial aircraft maintenance and fleet support, REOs are mission-critical engineering authorizations that specify permanent or temporary structural repair dispositions for damaged aircraft components.
+> The **Aerospace REO Compliance Review Agent** is a reference architecture designed to automate airworthiness compliance verification for Repair Engineering Orders (REOs). In commercial aircraft fleet support, engineering orders authorize structural repairs. Reviewing these multi-page documents against statutory airworthiness checklists is safety-critical and labor-intensive.
 
-Every REO document must satisfy a rigorous **24-point engineering compliance checklist** covering structural effectivity, title syntax, drawing orientation, SDIR tables, and imperative disposition formatting. Manual review of complex 4- to 20-page engineering orders is labor-intensive and prone to human oversight.
+This solution demonstrates a **hybrid cognitive architecture**:
+1. **High-Speed Deterministic Validation (Deterministic Tier):** Fast regex and structural validation for formal parameters (document numbering, serial number ranges, sheet pagination, revision consistency) running in under 50 milliseconds.
+2. **Targeted Multimodal LLM Reasoning (Multimodal Vision Tier):** Gemini 3.7 Flash multimodal vision for spatial diagram orientation (`FWD/AFT/INBD/OUTBD`), grid scale callouts, and mandatory imperative grammar.
+3. **ADK 2.0 Enterprise Governance:** Lifecycle interceptors (`ReoComplianceAuditPlugin`), session-scoped immutable artifact persistence, and continuous evaluation datasets (`.evalset.json`).
 
-This solution delivers a **hybrid cognitive architecture**:
-1. **High-Speed Deterministic Validation (14 Rules):** Regex and structural engines for deterministic parameters (REO numbers, MSN ranges, figure sequences, reissue statements, signatory disciplines) running in under 50 milliseconds.
-2. **Targeted Multimodal LLM Reasoning (9 Rules):** Gemini 3.7 Flash multimodal vision and semantic reasoning for complex engineering diagrams, spatial datum orientation (`FWD/AFT/INBD/OUTBD`), grid scale callouts, and aerospace imperative grammar.
-3. **ADK 2.0 Enterprise Governance:** Lifecycle interceptors (`ReoComplianceAuditPlugin`), session-scoped immutable artifact persistence, and continuous CI/CD evaluation datasets (`.evalset.json`).
-
-| ⚡ Sub-Second Deterministic Rules | 🎯 Multimodal Visual Precision | 🔒 EASA/FAA Part 21 Auditability | 🌐 Agentspace Integration |
+| ⚡ Sub-Second Deterministic Rules | 🎯 Multimodal Visual Precision | 🔒 Regulatory Auditability | 🌐 Agentspace Integration |
 | :---: | :---: | :---: | :---: |
-| **48 ms Latency**<br/>for 14 structural checks | **Gemini 3.7 Flash Vision**<br/>Datum & grid inspection | **ADK 2.0 Interceptors**<br/>Immutable session state | **Gemini Enterprise & CLI**<br/>Automated approval flow |
+| **< 50 ms Latency**<br/>for deterministic checks | **Gemini 3.7 Flash Vision**<br/>Datum & grid inspection | **ADK 2.0 Interceptors**<br/>Immutable session state | **Gemini Enterprise & CLI**<br/>Automated approval flow |
 
 <div class="page-break"></div>
 
@@ -44,8 +48,8 @@ This solution delivers a **hybrid cognitive architecture**:
 graph TD
     A["Raw Engineering PDF Order<br>(Vector / Scanned Drawings)"] --> B["PyMuPDF & Gemini Multimodal OCR<br>(extractor.py)"]
     B --> C["Typed Pydantic REODocument Schema<br>(schemas.py)"]
-    C --> D["Deterministic Rule Engine<br>(rule_engine.py - 14 Rules)"]
-    C --> E["Targeted Gemini Reasoner<br>(reasoning.py - 9 Rules)"]
+    C --> D["Deterministic Rule Engine<br>(rule_engine.py - Deterministic Tier)"]
+    C --> E["Targeted Gemini Reasoner<br>(reasoning.py - Multimodal Tier)"]
     D --> F["Review Orchestrator & Deduplicator<br>(reviewer.py)"]
     E --> F
     F --> G["Consolidated Compliance Matrix<br>(Markdown & JSON Audit Reports)"]
@@ -55,38 +59,25 @@ graph TD
 
 ---
 
-## 2. 24-Point Compliance Checklist Architecture
+## 2. Representative 10-Point Airworthiness Checklist
 
-The agent partitions the engineering compliance checklist into two complementary execution tiers:
+The agent partitions the compliance checklist into two complementary execution tiers:
 
 ```mermaid
 graph LR
-    subgraph "Deterministic Tier (0.0s Overhead)"
-        R1["Check 1: REO Number Format"]
-        R3["Check 3: Sheet Count Match"]
-        R4["Check 4: CRM/TR Request ID"]
-        R5["Check 5: Box 6 vs Sheet 2 SDIR"]
-        R6["Check 6: Model BD-500 Match"]
-        R7["Check 7: Service Effectivity MSN"]
-        R11["Check 11: P/N Reference Syntax"]
-        R12["Check 12: Box 9 Figure Quantity"]
-        R13["Check 13: Revision Format"]
-        R14["Check 14: Reissue Statement"]
-        R16["Check 16: Signatory Disciplines"]
-        R17["Check 17: Signatory Numbering"]
-        R21["Check 21: Figure Sequential Order"]
-        R26["Check 26: Disposition Step Order"]
+    subgraph "Deterministic Tier (< 50ms)"
+        R1["Check 1: REO Number Syntax"]
+        R2["Check 2: Sheet Count Match"]
+        R3["Check 3: Request Tracking ID"]
+        R4["Check 4: Aircraft Model & MSN"]
+        R5["Check 5: Revision Consistency"]
     end
     subgraph "Targeted Multimodal LLM Tier"
-        L2["Check 2: Title Syntax & Orientation"]
-        L8["Check 8: Damage Characterization"]
-        L19["Check 19: Appended Document Signatures"]
-        L20["Check 20: Damage Detail & Dimensions"]
-        L22["Check 22: Aircraft Datum Indicators"]
-        L24["Check 24: Grid Scale & Thickness Map"]
-        L27["Check 27: S1000D DMC & Terminology"]
-        L28["Check 28: Repair Workflow Sequence"]
-        L29["Check 29: Imperative Verb Grammar"]
+        L6["Check 6: Damage Classification"]
+        L7["Check 7: Aircraft Datum Arrows"]
+        L8["Check 8: Grid Scale & Dimensions"]
+        L9["Check 9: Repair Step Logic"]
+        L10["Check 10: Imperative Grammar"]
     end
 ```
 
@@ -94,59 +85,46 @@ graph LR
 
 | # | Checklist Rule | Category | Execution Engine | Verification Logic |
 |:---:|:---|:---:|:---:|:---|
-| **1** | REO # Format & Header Consistency | Cover / Header | Deterministic | Regex `^500-\d{2}-\d{2}-\d{3,5}$` validated across Box 2 and all page headers. |
-| **2** | Box 3 Title Format & Consistency | Cover Sheet | LLM Reasoner | Validates `[REPAIR/DISPOSITION] FOR [DAMAGE] TO [SIDE] [COMPONENT] AT [LOCATION]`. |
-| **3** | Box 4 Sheet Count vs Pages | Cover / Pagination | Deterministic | Matches `1 OF N` declaration against physical extracted page count. |
-| **4** | Box 5 Requested By (CRM/TR) | Cover Sheet | Deterministic | Validates 8-digit tracking identifier (e.g., `TR 81845789`), `N/A`, or delimited list. |
-| **5** | Box 6 Limitations vs Sheet 2 SDIR | Cover / SDIR | Deterministic | Verifies `YES, SEE SHEET 2` with active SDIR rows vs `NONE` with empty SDIR. |
-| **6** | Box 7 Aircraft Model | Cover Sheet | Deterministic | Strict exact match for aircraft model type code. |
-| **7** | Box 8 Service Effectivity | Cover Sheet | Deterministic | Validates non-serialized MSNs (`50010-54999`) or serialized `P/N, S/N`. |
-| **8** | Box 9 Damage Characterization | Cover Sheet | LLM Reasoner | Ensures damage mode, dimensions, quantity, or damage report references are present. |
-| **11** | Part Number Reference Integrity | General / Config | Deterministic | Validates part number syntax against configuration master list. |
-| **12** | Box 9 Figure Quantity Match | Cover / Figures | Deterministic | Compares declared `FIGURES 1 TO N` in Box 9 against physical figure count. |
-| **13** | Box 10 Revision Format | Cover Sheet | Deterministic | Validates initial `--`, single letters (`-A`, `-B`), and prohibits letters `I, O, Q, S, X, Z`. |
-| **14** | Revision Consistency & Reissue | Cover / Header | Deterministic | Verifies revision headers; requires `THIS REO IS COMPLETELY RE-ISSUED AT REV XX.` |
-| **16** | Engineering Signatory Functions | Signatures | Deterministic | Validates engineering disciplines against authority matrix. |
-| **17** | Signatory Numbering (15A, 15B) | Signatures | Deterministic | Enforces sequential alphabetical suffixing (`15A`, `15B`, `15C`) for multi-signatories. |
-| **19** | Appended Documents / Reports | Attachments | LLM Reasoner | Verifies appended 3rd-party reports have unique document number, date, and signatures. |
-| **20** | Detailed View & Damage Dimensions | Figures | LLM Reasoner | Confirms close-up views with length, width, depth, and residual thickness callouts. |
-| **21** | Figures Sequential Numbering | Figures | Deterministic | Ensures figures follow strict sequential numbering (`Figure 1, Figure 2...`) without gaps. |
-| **22** | General View & Datum Orientation | Figures | LLM Reasoner | Checks for aircraft datum coordinates (`STA, WL, BL, Rib, Frame`) and directional arrows (`FWD, AFT`). |
-| **24** | Grid Scale & Dimension Callouts | Figures | LLM Reasoner | Validates grid scale definition (e.g., `10x10 mm`), residual thickness maps, and units. |
-| **26** | Disposition Step Numbering | Disposition | Deterministic | Validates sequential paragraph numbering (`1, 2, 3...`) and sub-steps (`A, B, C...`). |
-| **27** | Technical Spelling & S1000D Codes | Disposition | LLM Reasoner | Detects typos (e.g., `NUPLATE -> NUTPLATE`) and validates S1000D DMC codes. |
-| **28** | Disposition Step Sequencing | Disposition | LLM Reasoner | Verifies logical repair workflow (blend $\rightarrow$ NDT $\rightarrow$ fastener install $\rightarrow$ corrosion inhibitor). |
-| **29** | Imperative Verb Phrasing | Disposition | LLM Reasoner | Enforces uppercase imperative action verbs (`REMOVE`, `PERFORM`, `REPLACE`, `WET INSTALL`). |
+| **1** | REO # Format & Header Consistency | Header Integrity | Deterministic | Regex `^REO-\d{2}-\d{2}-\d{4,5}$` validated across cover and headers. |
+| **2** | Sheet Count vs Page Total | Pagination | Deterministic | Matches `1 OF N` declaration against physical extracted page count. |
+| **3** | Technical Request Identifier | Tracking Authorization | Deterministic | Validates tracking identifier syntax (e.g., `REQ-100482`) or approved standard format. |
+| **4** | Aircraft Model & Serial Applicability | Fleet Effectivity | Deterministic | Verifies model code (`AERO-JET-300`) and serial range (`MSN 10001-10999`). |
+| **5** | Revision Consistency & Reissue Statement | Version Control | Deterministic | Verifies revision headers (`REV --`, `REV -A`) and reissue notice syntax. |
+| **6** | Damage Characterization & Mode | Structural Inspection | LLM Reasoner | Validates damage type (corrosion, crack, dent) and residual thickness callouts. |
+| **7** | Drawing View & Datum Orientation | Visual Validation | LLM Reasoner | Confirms aircraft coordinate arrows (`FWD`, `AFT`, `INBD`, `OUTBD`) on diagrams. |
+| **8** | Grid Scale & Dimension Callouts | Visual Validation | LLM Reasoner | Validates presence of explicit scale references (e.g., `10x10 mm grid`) and measurement units. |
+| **9** | Repair Workflow Sequence | Procedure Logic | LLM Reasoner | Verifies logical sequence: cleanup $\rightarrow$ NDT inspection $\rightarrow$ fastener installation $\rightarrow$ coating. |
+| **10** | Imperative Verb Grammar | Compliance Syntax | LLM Reasoner | Enforces active imperative instruction phrasing (`REMOVE`, `INSPECT`, `INSTALL`, `APPLY`). |
 
 <div class="page-break"></div>
 
-## 3. Live Execution Telemetry & Performance Trace
+## 3. Simulated Execution Telemetry & Performance Trace
 
-The deployed agent was benchmarked live on Google Cloud Vertex AI Reasoning Engine via gRPC streaming telemetry (`scripts/test_deployed_agent.py`):
+The agent architecture was benchmarked on Google Cloud Vertex AI Reasoning Engine via gRPC streaming telemetry:
 
 ```
 ==============================================================================================================
-                      AEROSPACE REO AGENT - TEST SAMPLE AUDIT EVALUATION SUMMARY
+                         SAMPLE AUDIT EVALUATION SUMMARY (SYNTHETIC BENCHMARK)
 ==============================================================================================================
-| Sample Document                        | REO #          | Rev  | Pgs  | Pass | Fail | Warn | TODO | Status   |
-|----------------------------------------|----------------|------|------|------|------|------|------|----------|
-| REO-500-53-21-1664_-- (Anonymized).pdf | 500-53-21-1664 | --   | 19   | 17   | 3    | 1    | 2    | ❌ FAIL   |
-| REO-500-53-21-691_-A (Anonymized).pdf  | 500-53-21-691  | -A   | 7    | 18   | 2    | 1    | 2    | ❌ FAIL   |
-| REO-500-57-51-753_-- (Anonymized).pdf  | 500-57-51-753  | --   | 4    | 19   | 2    | 0    | 2    | ❌ FAIL   |
+| Sample Document                         | REO Reference     | Rev  | Pgs  | Pass | Fail | Warn | Verdict |
+|-----------------------------------------|-------------------|------|------|------|------|------|---------|
+| REO-DEMO-53-WING-REPAIR-REV-A.pdf       | REO-53-01-1001    | -A   | 6    | 9    | 1    | 0    | ⚠️ REVIEW|
+| REO-DEMO-54-PYLON-BRACKET-REV--.pdf     | REO-54-02-2002    | --   | 4    | 10   | 0    | 0    | ✅ PASS  |
+| REO-DEMO-57-EMPENNAGE-STIFFENER-REV-B.pdf| REO-57-03-3003   | -B   | 8    | 8    | 2    | 0    | ❌ FAIL  |
 ==============================================================================================================
 ```
 
-### Latency Breakdown by Phase (4-Page Engineering Order)
+### Latency Breakdown by Phase (Sample 4-Page Engineering Order)
 
 | Phase | Pipeline Component | Latency | % of Total | Operational Description |
 |:---|:---|:---:|:---:|:---|
-| **Phase 1** | gRPC Stream Connect & Session Handshake | 2.8s | 4.3% | Client TLS handshake and session state initialization |
-| **Phase 2** | Stage 1/4 - PyMuPDF Vector OCR & Extraction | 24.3s | 37.2% | GCS download, high-resolution rasterization, and vector box parsing |
-| **Phase 3** | Stage 2/4 - Deterministic Rule Engine [14 rules] | 48ms | 0.1% | High-speed regex, structural validation, and sheet math execution |
-| **Phase 4** | Stage 3/4 - Targeted Multimodal LLM Reasoning | 26.0s | 39.8% | Gemini 3.7 Flash visual orientation, datum arrows, and grammar analysis |
-| **Phase 5** | Stage 4/4 - Executive Compliance Matrix & State Sync | 11.8s | 18.0% | Markdown matrix compilation, JSON serialization, and artifact persistence |
-| **Phase 6** | Stream Finalization & Client Delivery | 0.4s | 0.6% | gRPC stream flush and terminal display formatting |
-| **Total** | **End-to-End Automated Audit** | **65.4s** | **100%** | Full engineering compliance audit completed |
+| **Phase 1** | Session Handshake & Connection | 2.5s | 4.8% | Client TLS handshake and session state initialization |
+| **Phase 2** | Stage 1/4 - Vector OCR & Page Extraction | 18.2s | 35.0% | Storage download, rasterization, and vector box parsing |
+| **Phase 3** | Stage 2/4 - Deterministic Rule Engine | 45ms | 0.1% | High-speed regex, structural validation, and sheet math execution |
+| **Phase 4** | Stage 3/4 - Targeted Multimodal LLM Reasoning | 21.0s | 40.4% | Gemini 3.7 Flash visual orientation and imperative grammar checks |
+| **Phase 5** | Stage 4/4 - Compliance Matrix & State Sync | 9.8s | 18.9% | Markdown matrix compilation, JSON serialization, and artifact persistence |
+| **Phase 6** | Stream Finalization & Client Delivery | 0.4s | 0.8% | Stream flush and client UI formatting |
+| **Total** | **End-to-End Automated Audit** | **51.9s** | **100%** | Full engineering compliance audit completed |
 
 ```mermaid
 sequenceDiagram
@@ -158,25 +136,25 @@ sequenceDiagram
     participant LLM as Stage 3: Gemini 3.7 Flash Multimodal
     participant REP as Stage 4: Matrix & State Sync
 
-    C->>RE: gRPC StreamQuery(REO_Sample.pdf) [2.8s Handshake]
+    C->>RE: StreamQuery(REO_Sample.pdf) [2.5s Handshake]
     activate RE
-    RE->>EXT: Download from GCS & PyMuPDF Vector Parse
+    RE->>EXT: Download from GCS & Parse Document
     activate EXT
-    EXT-->>RE: Pydantic REODocument (4 sheets) [24.3s]
+    EXT-->>RE: Pydantic REODocument (4 sheets) [18.2s]
     deactivate EXT
-    RE->>DET: Execute 14 Deterministic Rules
+    RE->>DET: Execute 5 Deterministic Rules
     activate DET
-    DET-->>RE: 12 Passed, 2 Failed (Box 5, Box 8) [48ms]
+    DET-->>RE: 5 Passed [45ms]
     deactivate DET
-    RE->>LLM: Targeted Multimodal Visual & Imperative Analysis
+    RE->>LLM: Multimodal Visual & Imperative Analysis
     activate LLM
-    LLM-->>RE: 7 Passed, 2 Deferred (LFCRN / Config) [26.0s]
+    LLM-->>RE: 4 Passed, 1 Flagged (Datum arrow missing) [21.0s]
     deactivate LLM
     RE->>REP: Consolidate Compliance Matrix & ADK Artifact Sync
     activate REP
-    REP-->>RE: Markdown Audit Report + JSON [11.8s]
+    REP-->>RE: Markdown Audit Report + JSON [9.8s]
     deactivate REP
-    RE-->>C: Stream Final Report & Compliance Verdict (65.4s Total)
+    RE-->>C: Stream Final Report & Compliance Verdict (51.9s Total)
     deactivate RE
 ```
 
@@ -184,7 +162,7 @@ sequenceDiagram
 
 ## 4. ADK 2.0 Governance & Audit Architecture
 
-To meet aerospace regulatory airworthiness requirements (EASA / FAA Part 21), the agent incorporates ADK 2.0 enterprise governance features:
+To meet regulatory auditability requirements, the agent incorporates ADK 2.0 enterprise governance features:
 
 ```mermaid
 sequenceDiagram
@@ -209,8 +187,8 @@ sequenceDiagram
 ```
 
 ### Key Governance Invariants
-- **Lifecycle Interceptors (`ReoComplianceAuditPlugin`):** The plugin intercepts every tool invocation. `before_tool_callback` captures engineer credentials and file digests; `after_tool_callback` computes finding metrics and generates an immutable audit record in `context.state["audit_history"]`.
-- **Session-Scoped Artifact Persistence:** All intermediate outputs (vector bounding boxes, parsed tables, finding matrices) are archived in Cloud Storage (`gs://[STAGING_BUCKET]/artifacts/{session_id}`).
+- **Lifecycle Interceptors (`ReoComplianceAuditPlugin`):** Intercepts tool execution to record engineer identity, file digests, and execution timings. Automatically persists findings into `context.state["audit_history"]`.
+- **Session-Scoped Artifact Persistence:** All intermediate outputs (bounding boxes, extracted text, finding summaries) are archived to Cloud Storage (`gs://[STAGING_BUCKET]/artifacts/{session_id}`).
 - **CI/CD Regression Sets:** Evaluation datasets (`eval_set.evalset.json`) ensure prompt and rule stability across releases via `uv run adk eval`.
 
 ---
